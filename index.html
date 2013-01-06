@@ -1,59 +1,656 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Appboxr : Damn simple data persistence for damn simple javascript apps." />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Appboxr</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/TimHeckel/AppBoxr">View on GitHub</a>
-
-          <h1 id="project_title">Appboxr</h1>
-          <h2 id="project_tagline">Damn simple data persistence for damn simple javascript apps.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/TimHeckel/AppBoxr/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/TimHeckel/AppBoxr/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AppBoxr :: a real-time .NET micro framework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-responsive.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900|Maiden+Orange' rel='stylesheet'
+        type='text/css'>
+    <style>
+        body
+        {
+            font-family: 'Lato' , sans-serif;
+            background-color: #58A6C8;
+        }
+        .appboxr
+        {
+            font-family: 'Maiden Orange';
+        }
+        .segments h5
+        {
+            font-family: 'Maiden Orange';
+            font-size: 21pt;
+        }
+        .segments p
+        {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .answer
+        {
+            margin: 8px;
+            padding: 8px;
+            background-color: #ecb861;
+            border: 1px solid #e79232;
+            border-radius: 5px;
+        }
+        
+        .shiftright
+        {
+            margin-left: 360px;
+        }
+        .codez
+        {
+            font-size: 95%;
+        }
+        .dark-orange
+        {
+            color: #e79232;
+        }
+        .light-orange
+        {
+            color: #ecb861;
+        }
+        .light-orange-back
+        {
+            background-color: #ecb861;
+        }
+        .dark-blue
+        {
+            color: #257192;
+        }
+        .dark-blue-back
+        {
+            background-color: #257192;
+        }
+        .light-blue
+        {
+            color: #58A6C8;
+        }
+        .light-blue-back
+        {
+            background-color: #58A6C8;
+        }
+        .appboxr-header
+        {
+            border-bottom: 1px solid #ccc;
+            background-color: #F8F8F8;
+            padding: 5px;
+            margin-bottom: 20px;
+            background-color: #ecb861;
+        }
+        .maincode
+        {
+            height: 250px;
+            background-color: #594126;
+            border-color: #333;
+            color: #fff;
+        }
+        
+        .segment
+        {
+            background-color: #594126;
+            border-color: #333;
+            color: #fff;
+        }
+        
+        .padder
+        {
+            margin-bottom: 7px;
+            padding-bottom: 7px;
+        }
+        
+        .codetext
+        {
+            color: #ccc;
+            margin: 1px;
+        }
+        
+        .codetextbracket
+        {
+            color: #000;
+            border: 1px solid #ccc;
+            background-color: #F8F8F8;
+            border-radius: 3px;
+            display: inline-block;
+            margin: 1px;
+            padding: -1px;
+            font-size: 95%;
+            font-family: Monaco,Menlo,Consolas, "Courier New" ,monospace;
+        }
+        
+        .redthrough
+        {
+            text-decoration: line-through;
+            color: red;
+        }
+        
+        .breaker
+        {
+            border-bottom: 1px solid #3e2d1b;
+        }
+        
+        .navbar-blue-inner
+        {
+            background-color: #58A6C8;
+            background-image: linear-gradient(to bottom, #58A6C8, #257192);
+            background-repeat: repeat-x;
+            border: 1px solid #257192;
+            border-radius: 4px 4px 4px 4px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+            min-height: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-family: 'Maiden Orange';
+        }
+        
+        .onlycode
+        {
+            color: #000;
+        }
+        
+        .appboxr-x-large
+        {
+            font-size: 170%;
+        }
+        .appboxr-large
+        {
+            font-size: 140%;
+        }
+        
+        .navbar .nav > .active > a, .navbar .nav > .active
+        {
+            background-color: #58A6C8;
+            color: #fff;
+        }
+        
+        .navbar .nav > li > a, .nav-tabs.nav-stacked > li > a
+        {
+            text-shadow: 0 1px 0 #257192;
+            color: #ccc;
+        }
+        
+        .nav-tabs.nav-stacked > li > a
+        {
+            border: none;
+        }
+        
+        .nav-tabs.nav-stacked > .active > a, .nav-tabs.nav-stacked > .active > a:hover
+        {
+            background-color: #58A6C8;
+        }
+        
+        .affix
+        {
+            position: fixed;
+            top: 0;
+            left: auto;
+            width: 230px;
+        }
+        
+        .indent10
+        {
+            margin-left: 10px;
+        }
+        
+        .indent20
+        {
+            margin-left: 20px;
+        }
+        
+        .indent40
+        {
+            margin-left: 40px;
+        }
+        
+        .upcushion
+        {
+            margin-top: 5px;
+        }
+        
+        .stepper
+        {
+            padding: 6px;
+            margin: 6px;
+        }
+        
+        .stepper h6
+        {
+            font-size: 16pt;
+            border-bottom: #ccc;
+        }
+        
+        .stepper pre
+        {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="img/ico/favicon.png">
+</head>
+<body data-spy="scroll" data-target=".docbar">
+    <div class="container appboxr-header">
+        <div class="row">
+            <div class="span4">
+                <img src="img/logo.png" alt="AppBoxr :: Bruising Simplicity" />
+                <div style="padding-left: 10px;">
+                    <h1 class="appboxr">
+                        AppBoxr</h1>
+                    <h4>
+                        a .NET micro framework of<br />
+                        bruising simplicity</h4>
+                </div>
+            </div>
+            <div class="span8">
+                <div class="row">
+                    <div class="navbar">
+                        <div class="navbar-blue-inner appboxr-x-large">
+                            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                                class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                            </a>
+                            <div class="pull-right nav-collapse collapse">
+                                <ul class="nav">
+                                    <li class="active"><a href="#installing">Docs</a></li>
+                                    <li><a href="https://github.com/TimHeckel/AppBoxr">Github</a></li>
+                                    <li><a href="https://nuget.org/packages/AppBoxr/0.0.9-beta">NuGet</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span4">
+                        <h4>
+                            <span class="dark-blue appboxr appboxr-large">Step 1: Cut a hole in your code</span></h4>
+                        <div class="well well-small maincode">
+                            <span class="label label-warning">Client HTML</span>
+                            <div class="breaker padder upcushion">
+                                <div class="codetextbracket redthrough">
+                                    <span class="onlycode">&lt;input type="text" id="Product.Name" /&gt;</span></div>
+                                <div class="codetextbracket redthrough">
+                                    <span class="onlycode">&lt;input type="submit"/&gt;</span></div>
+                            </div>
+                            <div class="breaker padder">
+                                <span class="label label-warning">C# &mdash; and lots of it</span>
+                                <div class="redthrough">
+                                    <div class="codetext">
+                                        public class ProductsController: ApiController {</div>
+                                </div>
+                                <div class="redthrough indent20">
+                                    <div class="codetext">
+                                        public Product PostProduct(Product item) {</div>
+                                </div>
+                                <div class="redthrough indent40">
+                                    <div class="codetext">
+                                        item = repository.Add(item);</div>
+                                </div>
+                                <div class="codetext indent40">
+                                    ...</div>
+                            </div>
+                            <div class="padder">
+                                <div class="redthrough">
+                                    <div class="codetext">
+                                        context.Products.Add(prod);</div>
+                                    <div class="codetext">
+                                        context.SaveChanges();</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <h4>
+                            <span class="dark-blue appboxr appboxr-large">Step 2: Put this junk in that hole</span></h4>
+                        <div class="well well-small maincode">
+                            <span class="label label-warning">Client &mdash; HTML & Javascript only</span>
+                            <div class="padder breaker upcushion">
+                                <div class="codetextbracket">
+                                    &lt;div data-model="Product"&gt;
+                                </div>
+                                <div class="codetextbracket indent10">
+                                    &lt;input type="text" data-property="Name"/&gt;
+                                </div>
+                                <div class="codetextbracket indent10">
+                                    &lt;button data-save="Product"&gt;Save&lt;/button&gt;
+                                </div>
+                                <br />
+                                <div class="codetextbracket">
+                                    &lt;/div&gt;
+                                </div>
+                            </div>
+                            <div class="padder">
+                                <div>
+                                    $(document).ready(function() {</div>
+                                <div class="indent10">
+                                    var app = new AppBoxr({ syncUI: true });</div>
+                                <div class="indent10">
+                                    $("*:[data-save]").click(function (e) {</div>
+                                <div class="indent20">
+                                    app.call("save", { models: [$(this).data("save")] });</div>
+                                <div class="indent10">
+                                    });</div>
+                                <div>
+                                    });</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="container">
+        <!--/.nav-collapse -->
+        <div class="row">
+            <div class="span3">
+                <div class="docbar">
+                    <div class="navbar-blue-inner appboxr-x-large affix-top" data-spy="affix" data-offset-top="426">
+                        <ul class="nav nav-tabs nav-stacked">
+                            <li><a href="#whatis">
+                                <h2>
+                                    AppBoxr?</h2>
+                            </a></li>
+                            <li><a href="#installing">Installing</a></li>
+                            <li><a href="#quickstart">Quick Start</a></li>
+                            <li><a href="#restful">RESTful API</a></li>
+                            <li><a href="#help">Help</a></li>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Just a placeholder</h3>
-      </section>
+                            <li><a href="#htmlstructure">HTML Structure</a></li>
+                            <li><a href="#jsapi">Javascript Api</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="span9 segments">
+                <div id="whatis" class="well segment">
+                    <div class="row">
+                        <div class="span5">
+                            <h5>
+                                What is AppBoxr?</h5>
+                            <p>
+                                AppBoxr is a .NET micro-framework that does three things: (1) provides a simple
+                                way to synchronize your data collections in real-time to all connected clients;
+                                (2) exposes a RESTful api to add/update/delete any of your DOM-defined collections;
+                                and (3) handles updating, deleting, and adding of new collections all through simple
+                                javascript calls.
+                            </p>
+                            <p>
+                                AppBoxr makes the coding simple: all you need to worry about is making a snappy
+                                UI sprinked with data-* attributes that describe your model. Once that's set, fire
+                                up the AppBoxr javascript object and let AppBoxr do the rest.
+                            </p>
+                        </div>
+                        <div class="span3">
+                            <div id='slate_941c9aba3f2d'>
+                            </div>
+                            <script type='text/javascript'>
+                                (function (w, d, u, c) { var s, d; var l = false; if (!(j = w.Slatebox) || c(s, l)) { var sc = d.createElement('script'); sc.type = 'text/javascript'; sc.src = u; sc.onload = sc.onreadystatechange = function () { if (!l && (!(dx = this.readyState) || dx == 'loaded' || dx == 'complete')) { c((s = window.Slatebox), l = true); } }; d.documentElement.childNodes[0].appendChild(sc); } })(window, document, 'http://slatebox.com/public/javascript/runtime/sb-0.5.0.embed.min.js', function (s$, isloaded) { window.onload = function (e) { var sb = new Slatebox(); sb.embed({ container: s$.el('slate_941c9aba3f2d'), slateid: '941c9aba3f2d', size: 300, apikey: '176fde9e8c' }); }; });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span8">
+                            <h5>
+                                What isn't AppBoxr?</h5>
+                            <p>
+                                AppBoxr is <b>NOT</b> a full-stack framework. It's intended to live as a micro-framework
+                                within ASP.NET MVC apps on the .NET platform. Need routing, authentication, security?
+                                .NET has it all covered.
+                            </p>
+                            <h5>
+                                Who made this?
+                            </h5>
+                            <p>
+                                Hi, nice to meet you! My name is <a href="http://timheckel.com">Tim</a>. I really
+                                love building innovative things on the web.
+                            </p>
+                            <h5>
+                                Upon what shoulders does Appboxr rest?</h5>
+                            <p>
+                                Huge props to <a href="http://signalr.net">SignalR</a> for the real-time goodness
+                                of AppBoxr. Also, much inspiration was drawn from <a href="http://meteor.com">Meteor</a>,
+                                which is a fancy web framework from the future.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="installing" class="well segment">
+                    <h5>
+                        How do I install?</h5>
+                    <p>
+                        Using Nuget in a <code>ASP.NET MVC 4+</code> app:</p>
+                    <div class="padder">
+                        <code style="font-size: 20pt;">Install-Package AppBoxr -Pre</code></div>
+                    <hr />
+                    <p>
+                        The code is also available on <a href="https://github.com/TimHeckel/AppBoxr">GitHub</a>.
+                    </p>
+                </div>
+                <div id="quickstart" class="well segment">
+                    <h5>
+                        Quick Start</h5>
+                    <div class="stepper">
+                        <h6>
+                            Step 1:</h6>
+                        Per the above, run <code>Install-Package AppBoxr -Pre</code> from the nuget command
+                        line inside a freshly created ASP.NET MVC 4+ app
+                    </div>
+                    <div class="stepper">
+                        <h6>
+                            Step 2:</h6>
+                        Sign up at <a href="http://mongolab.com">mongolab.com</a> or <a href="https://www.mongohq.com/home">
+                            mongohq.com</a> for a free account and create a mongo database.
+                    </div>
+                    <div class="stepper">
+                        <h6>
+                            Step 3:</h6>
+                        Copy the connection string URL into your web.config file.
+                    </div>
+                    <div class="stepper">
+                        <code>&lt;add key="AppBoxr-MongoDBUrl" value="mongodb://USERNAME:PWD@URL_TO_MONGODB_WITH_PORT/NAME_OF_DATABASE"
+                            /&gt; </code>
+                    </div>
+                    <div class="stepper">
+                        <h6>
+                            Step 4:</h6>
+                        Add this snippet of HTML to one of your views.
+                        <pre>
+    &lt;div style="float:left;border-right:1px solid #ccc;padding:3px;width:200px;"&gt;
+        List of all kittens
+        &lt;div data-model-template="Kittens" data-model-orderby="Name" data-model-orderby-direction="asc"&gt;
+            &lt;div data-model-target="KittyContainer" style="padding:5px;cursor:pointer;"&gt;
+                &lt;h1&gt;
+                    {{Name}}&lt;/h1&gt;
+                Eye Color: {{EyeColor}}
+                &lt;br /&gt;
+                Enjoys CatNip? {{Toys.EnjoysCatNip}}
+                &lt;br /&gt;
+                Yarn? {{Toys.HasBallOfYarn}}
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style="float:left;margin-left:20px;" id="KittyContainer" data-model="Kittens"&gt;
+        &lt;div&gt;
+            &lt;span&gt;Name&lt;/span&gt;
+            &lt;input type="text" id="txtName" data-property="Name" /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;span&gt;Eye Color&lt;/span&gt;
+            &lt;input type="text" data-property="EyeColor" /&gt;
+        &lt;/div&gt;
+        &lt;div data-model="Toys"&gt;
+            &lt;label&gt;&lt;input type="checkbox" data-property="HasBallOfYarn" /&gt;Has Ball of Yarn?&lt;/label&gt;
+            &lt;br /&gt;
+            &lt;label&gt;&lt;input type="checkbox" data-property="EnjoysCatNip" /&gt; Enjoys cat nip?&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;button class="btnSave" data-save="Kittens"&gt;
+            Save&lt;/button&gt;
+        &lt;button class="btnDelete" data-del="Kittens"&gt;
+            Delete&lt;/button&gt;
+    &lt;/div&gt;
+</pre>
+                    </div>
+                    <div class="stepper">
+                        <h6>
+                            Step 5:</h6>
+                        Add this javascript.
+                        <pre>
+    &lt;!--load dependencies first--&gt;
+    &lt;script src="Scripts/jquery-1.6.4.js"&gt;&lt;/script&gt; &lt;!--or whatever recent version you have--&gt;
+    &lt;script src="Scripts/underscore.js"&gt;&lt;/script&gt;
+    &lt;script src="Scripts/jquery.signalR-1.0.0-rc1.js"&gt;&lt;/script&gt;
+    &lt;script src="Scripts/jquery.signalRamp.js"&gt;&lt;/script&gt;
+    &lt;script src="Scripts/jquery.domModelr.js"&gt;&lt;/script&gt;
+    &lt;script src="Scripts/handlebars.js"&gt;&lt;/script&gt;
+
+    &lt;!--load appboxr last--&gt;
+    &lt;script src="Scripts/jquery.appBoxr.js"&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+        $(document).ready(function () {
+            var app = new AppBoxr({
+                url: "http://YOUR_LOCAL_ENVIRONMENT" //CHANGE this to match your local environment
+                , syncUI: true //leave as true if you want to sync UI updates across clients
+            });
+
+            $(".btnSave").click(function (e) {
+                app.call("save", { models: [$(this).data("save")] });
+            });
+
+            $(".btnDelete").click(function (e) {
+                app.call("del", { model: $(this).data("del") });
+            });
+        });
+    &lt;/script&gt;
+</pre>
+                    </div>
+                    <div class="stepper">
+                        <h6>
+                            What just happened?</h6>
+                        <p>
+                            You just defined a <code>Kittens</code> model in your HTML with <code>data-*</code>
+                            attributes, wired up <code>AppBoxr</code> to automatically sync the collection data
+                            to all subscribed clients, and exposed the new <code>Kittens</code> collections
+                            via a RESTful API.
+                        </p>
+                        <p>
+                            Bring up this page in multiple browsers and start adding some Kittens. Both browsers
+                            should be updated in real time to any changes.
+                        </p>
+                        <p>
+                            <b>Note:</b> If you kept <code>syncUI: true</code> in your AppBoxr javascript, then
+                            UI events AND collection changes will be synced across all your clients.
+                        </p>
+                    </div>
+                </div>
+                <div id="restful" class="well segment">
+                    <h5>
+                        All collections are accessible via a RESTful API.</h5>
+                    <p>
+                        All <code>{HubName}</code>s below refer to the <code>appId</code> specified in the
+                        AppBoxr instantiation. If you did not provide an appId, the default is AppBoxr.
+                    </p>
+                    <p>
+                        All <code>{CollectionName}</code>s are the top-level collection as defined by your
+                        <code>data-model</code> attributes in your HTML.
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <code>GET</code>
+                            </td>
+                            <td>
+                                http://YOUR_LOCAL_ENVIRONMENT/{HubName}/{CollectionName}
+                                <br />
+                                You can also optionally provide a mongo queryable (i.e., {Name: 'bootsies'}) as
+                                a single querystring parameter.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <code>POST</code>
+                            </td>
+                            <td>
+                                http://YOUR_LOCAL_ENVIRONMENT/{HubName}/{CollectionName}
+                                <br />
+                                <code>POST</code> the JSON object to modify or add
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <code>DELETE</code>
+                            </td>
+                            <td>
+                                http://YOUR_LOCAL_ENVIRONMENT/{HubName}/{CollectionName}?ids={comma-separated-list}
+                                <br />
+                                <code>{comma-separated-list}</code> - a list of ids to delete
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="padder">
+                        Any deleted, added, or modified collections via the API will be synced in real-time
+                        to all connected clients.
+                    </div>
+                </div>
+                 <div id="help" class="well segment">
+                    <h5>
+                        Need some help?</h5>
+
+                        <p><a href="http://stackoverflow.com">Stackoverflow</a> is a great place to ask for help.</p>
+                        <p>You can also shoot me <a href="mailto:tim@slatebox.com">an email</a> and I'll do my best to respond.</p>
+                </div>
+
+                <div id="htmlstructure" class="well segment">
+                    <h5>HTML Structure</h5>
+                    <p>Coming soon</p>
+                </div>
+
+                 <div id="jsapi" class="well segment" style="height:600px;">
+                    <h5>Javascript API</h5>
+                    <p>Coming soon</p>
+                </div>
+
+            </div>
+        </div>
     </div>
+    <!-- /container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Appboxr maintained by <a href="https://github.com/TimHeckel">TimHeckel</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+        $(document).ready(function () {
+            $('a[href^="#"]').click(function () {
+                var target = $(this.hash);
+                if (target.length == 0) target = $('a[name="' + this.hash.substr(1) + '"]');
+                if (target.length == 0) target = $('html');
+                $('html, body').animate({ scrollTop: target.offset().top }, 500);
+                return false;
+            });
+        });
 
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-35769235-1");
+    </script>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-35769235-1");
             pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-
-  </body>
+        } catch (err) { }
+    </script>
+</body>
 </html>
