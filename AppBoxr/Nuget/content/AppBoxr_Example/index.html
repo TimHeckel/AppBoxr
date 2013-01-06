@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AppBoxr - Simple Example</title>
+    <style type="text/css">
+        body
+        {
+            font-family: Trebuchet MS;
+        }
+        
+        #messages
+        {
+            margin: 10px;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            background-color: #F8F8F8;
+        }
+        #sender
+        {
+            margin: 3px;
+            padding: 3px;
+        }
+        .msg
+        {
+            clear: both;
+            padding: 5px 1px 5px 1px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .msg span
+        {
+            width: 150px;
+        }
+        
+        .inputHeader
+        {
+            padding: 3px;
+            margin: 3px;
+        }
+        .input
+        {
+            padding: 3px;
+            margin: 3px;
+        }
+        .input span
+        {
+            display: inline-block;
+            padding: 3px;
+            width: 100px;
+        }
+        
+        [data-model]
+        {
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+        [data-model] legend
+        {
+            padding: 5px;
+            font-size: 15pt;
+        }
+        [data-model="Family"]
+        {
+            margin-left: 20px;
+        }
+        [data-model="Pets"]
+        {
+            margin-left: 40px;
+        }
+        [data-prop]
+        {
+            margin-left: 20px;
+        }
+    </style>
+    <!--load dependencies first-->
+    <script src="../Scripts/jquery-1.6.4.js"></script>
+    <script src="../Scripts/underscore.js"></script>
+    <script src="../Scripts/jquery.signalR-1.0.0-rc1.js"></script>
+    <script src="../Scripts/jquery.signalRamp.js"></script>
+    <script src="../Scripts/jquery.domModelr.js"></script>
+    <script src="../Scripts/handlebars.js"></script>
+
+    <!--load appboxr last-->
+    <script src="../Scripts/jquery.appBoxr.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            var app = new AppBoxr({
+                appId: "first_app_id" //needs to be url safe for REST usage
+                , url: "http://localhost:1975" //CHANGE this to match your local environment
+                , syncUI: true
+            });
+
+            $(".btnSave").click(function (e) {
+                app.call("save", { models: [$(this).attr("rel")] });
+            });
+
+            $(".btnDelete").click(function (e) {
+                app.call("del", { model: $(this).attr("rel") });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div style="float: left;">
+        Employees
+        <div data-model-template="Employee" data-model-orderby="LastName" data-model-orderby-direction="desc">
+            <div data-model-target="EmployeeContainer">
+                <h1>
+                    {{LastName}}, {{FirstName}}
+                </h1>
+            </div>
+            <div>
+                {{Family.NumberOfChildren}}</div>
+            <div>
+                {{Family.Pets.DogName}}</div>
+        </div>
+    </div>
+    <div style="float: left;">
+        Third Set
+        <div data-model-template="ThirdSet" data-model-orderby="ThirdProp" data-model-orderby-direction="asc">
+            <div data-model-target="ThirdSetContainer">
+                <h1>
+                    {{ThirdProp}}</h1>
+            </div>
+        </div>
+    </div>
+    <div style="float: right;">
+        <div>
+            <fieldset id="ThirdSetContainer" data-model="ThirdSet">
+                <legend>Third Data</legend>
+                <div class="input">
+                    <span>Third Property</span>
+                    <input type="text" id="Text1" data-property="ThirdProp" />
+                </div>
+                <button class="btnSave" rel="ThirdSet">
+                    Save</button>
+                &nbsp;
+                <button class="btnDelete" rel="ThirdSet">
+                    Delete</button>
+            </fieldset>
+            <fieldset id="EmployeeContainer" data-model="Employee">
+                <legend>Employee</legend>
+                <div class="input">
+                    <span>First Name</span>
+                    <input type="text" id="txtFirstName" data-property="FirstName" />
+                </div>
+                <div class="input">
+                    <span>Last Name</span>
+                    <input type="text" id="txtLastName" data-property="LastName" />
+                </div>
+                <div class="input">
+                    <span></span>
+                    <label for="chkFullTime">
+                        <input type="checkbox" id="chkFullTime" data-property="IsFullTime" />
+                        Is Full Time?
+                    </label>
+                </div>
+                <fieldset data-model="Family">
+                    <legend>Family</legend>
+                    <div class="input">
+                        <span>Number of Children</span>
+                        <input type="text" id="txtChildren" data-property="NumberOfChildren" />
+                    </div>
+                    <fieldset data-model="Pets">
+                        <legend>Pets</legend>
+                        <div class="input">
+                            <span>Dog Name</span>
+                            <input type="text" id="txtDogName" data-property="DogName" />
+                        </div>
+                    </fieldset>
+                </fieldset>
+                <fieldset data-model="Hobbies">
+                    <legend>Hobbies</legend>
+                    <div class="input">
+                        <span>Hobbies</span>
+                        <input type="text" id="txtHobbies" data-property="Hobby1" />
+                    </div>
+                </fieldset>
+                <button class="btnSave" rel="Employee">
+                    Save</button>
+            </fieldset>
+            <fieldset id="anotherModel" data-model="SomethingElse">
+                <legend>Family</legend>
+                <div class="input">
+                    <span>Otherness</span>
+                    <input type="text" id="txtOtherness" data-property="Otherness" />
+                </div>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset data-model="SecondaryData">
+                <legend>Second Data</legend>
+                <div class="input">
+                    <span>Second Property</span>
+                    <input type="text" id="txtSF" data-property="SomeProperty" />
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <add key="AppBoxr-MongoDBUrl" value="mongodb://USERNAME:PASSWORD@URL_TO_YOUR_MONGODB_WITH_PORT_NUMBER/NAME_OF_APP" />
+    <!--You can add hub-specific databases like name="AppBoxr-HubName-MongoDBUrl" but if you use just the above, that will be the default connection for all hubs -->
+  </appSettings>
+</configuration>

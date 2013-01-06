@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>AppBoxr</id>
+    <version>0.0.9-beta</version>
+    <title>AppBoxr</title>
+    <authors>Tim Heckel</authors>
+    <owners>Tim Heckel</owners>
+    <licenseUrl>http://http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>http://appboxr.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A .NET micro framework full of awesomeness</description>
+    <releaseNotes>Initial Commit.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>real-time realtime SignalR streaming HTTP AppBoxr Meteor</tags>
+    <dependencies>
+      <dependency id="Handlebars.js" version="1.0.8" />
+      <dependency id="jquery.domModelr" version="0.0.6.2" />
+      <dependency id="jquery.signalRamp" version="0.0.6.1" />
+      <dependency id="Microsoft.AspNet.Mvc" version="4.0.20710.0" />
+      <dependency id="Microsoft.AspNet.SignalR" version="1.0.0-rc1" />
+      <dependency id="Microsoft.AspNet.SignalR.JS" version="1.0.0-rc1" />
+      <dependency id="Microsoft.AspNet.SignalR.SystemWeb" version="1.0.0-rc1" />
+      <dependency id="Microsoft.AspNet.WebApi" version="4.0.20710.0" />
+      <dependency id="Microsoft.Owin.Host.SystemWeb" version="1.0.0-rc1" />
+      <dependency id="mongocsharpdriver" version="1.7" />
+      <dependency id="underscore.js" version="1.4.3" />
+      <dependency id="WebActivator" version="1.5.3" />
+    </dependencies>
+  </metadata>
+</package>
