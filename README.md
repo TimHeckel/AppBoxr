@@ -1,4 +1,6 @@
 AppBoxr
 =======
 
-Damn simple javascript apps.
+A .NET micro framework for real-time javascript apps.
+
+http://appboxr.com
