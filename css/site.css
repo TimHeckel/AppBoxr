@@ -131,6 +131,7 @@ body
 {
     background-color: #594126;
     background-image: linear-gradient(to bottom, #594126, #433526);
+    background: -webkit-linear-gradient(#594126, #433526);
     background-repeat: repeat-x;
     border: 1px solid #257192;
     border-radius: 4px 4px 4px 4px;
@@ -145,6 +146,7 @@ body
 {
     background-color: #58A6C8;
     background-image: linear-gradient(to bottom, #58A6C8, #257192);
+    background: -webkit-linear-gradient(#58A6C8, #257192);
     background-repeat: repeat-x;
     border: 1px solid #257192;
     border-radius: 4px 4px 4px 4px;
