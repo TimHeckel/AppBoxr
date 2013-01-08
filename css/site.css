@@ -1,0 +1,264 @@
+body
+{
+    font-family: 'Lato' , sans-serif;
+    font-size: 13pt;
+    background-color: #58A6C8;
+}
+.examples {
+    padding-top: 130px; 
+}
+.appboxr
+{
+    font-family: 'Maiden Orange';
+}
+.segments h5
+{
+    font-family: 'Maiden Orange';
+    font-size: 21pt;
+}
+.segments p
+{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.answer
+{
+    margin: 8px;
+    padding: 8px;
+    background-color: #ecb861;
+    border: 1px solid #e79232;
+    border-radius: 5px;
+}
+
+.shiftright
+{
+    margin-left: 360px;
+}
+.codez
+{
+    font-size: 95%;
+}
+.dark-orange
+{
+    color: #e79232;
+}
+.light-orange
+{
+    color: #ecb861;
+}
+.light-orange-back
+{
+    background-color: #ecb861;
+}
+.dark-blue
+{
+    color: #257192;
+}
+.dark-blue-back
+{
+    background-color: #257192;
+}
+.light-blue
+{
+    color: #58A6C8;
+}
+.light-blue-back
+{
+    background-color: #58A6C8;
+}
+.appboxr-header
+{
+    border-bottom: 1px solid #ccc;
+    background-color: #F8F8F8;
+    padding: 5px;
+    margin-bottom: 20px;
+    background-color: #ecb861;
+}
+.maincode
+{
+    min-height: 250px;
+    background-color: #594126;
+    border-color: #333;
+    color: #fff;
+    font-size: 10pt;
+}
+
+.segment
+{
+    background-color: #ecb861;
+    border-color: #333;
+    color: #000;
+}
+
+.padder
+{
+    margin-bottom: 7px;
+    padding-bottom: 7px;
+}
+
+.codetext
+{
+    color: #ccc;
+    margin: 1px;
+}
+
+.codetextbracket
+{
+    color: #000;
+    border: 1px solid #ccc;
+    background-color: #F8F8F8;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 1px;
+    padding: -1px;
+    font-size: 95%;
+    font-family: Monaco,Menlo,Consolas, "Courier New" ,monospace;
+}
+
+.redthrough
+{
+    text-decoration: line-through;
+    color: red;
+}
+
+.breaker
+{
+    border-bottom: 1px solid #3e2d1b;
+}
+
+.navbar-brown-inner
+{
+    background-color: #594126;
+    background-image: linear-gradient(to bottom, #594126, #433526);
+    background-repeat: repeat-x;
+    border: 1px solid #257192;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Maiden Orange';
+}
+
+.navbar-blue-inner
+{
+    background-color: #58A6C8;
+    background-image: linear-gradient(to bottom, #58A6C8, #257192);
+    background-repeat: repeat-x;
+    border: 1px solid #257192;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Maiden Orange';
+}
+
+.onlycode
+{
+    color: #000;
+}
+
+.appboxr-x-large
+{
+    font-size: 170%;
+}
+.appboxr-large
+{
+    font-size: 140%;
+}
+
+.navbar-brown-inner .nav > .active > a, .navbar .nav > .active
+{
+    background-color: #433526;
+    color: #fff;
+}
+
+.navbar-brown-inner .nav > li > a, .nav-tabs.nav-stacked > li > a
+{
+    text-shadow: 0 1px 0 #433526;
+    color: #ccc;
+}
+
+.navbar-blue-inner .nav > .active > a, .navbar .nav > .active
+{
+    background-color: #58A6C8;
+    color: #fff;
+}
+
+.navbar-blue-inner .nav > li > a, .nav-tabs.nav-stacked > li > a
+{
+    text-shadow: 0 1px 0 #257192;
+    color: #ccc;
+}
+
+.nav-tabs.nav-stacked > li > a
+{
+    border: none;
+}
+
+.nav-tabs.nav-stacked > .active > a, .nav-tabs.nav-stacked > .active > a:hover
+{
+    background-color: #58A6C8;
+}
+
+.indent10
+{
+    margin-left: 10px;
+}
+
+.indent20
+{
+    margin-left: 20px;
+}
+
+.indent40
+{
+    margin-left: 40px;
+}
+
+.upcushion
+{
+    margin-top: 5px;
+}
+
+.stepper
+{
+    padding: 6px;
+    margin: 6px;
+}
+
+.stepper h6
+{
+    font-size: 16pt;
+    border-bottom: #ccc;
+}
+
+.stepper pre
+{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+a
+{
+    color: #257192;
+}
+
+.quote { font-size:12pt; margin-top:-13px; color: #ccc; }
+
+.appboxr-load 
+{
+    cursor: pointer;
+    padding:3px;
+    margin:3px;
+    border: 1px solid transparent;
+}
+
+.appboxr-load:hover 
+{
+    background-color:#e79232;
+    border: 1px solid #257192;
+    border-radius: 7px;
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AppBoxr :: a real-time .NET micro framework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/site.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900|Maiden+Orange' rel='stylesheet'
+        type='text/css'>
+    <style>
+        .affix
+        {
+            position: fixed;
+            top: 130;
+            left: auto;
+            width: auto;
+        }
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="img/ico/favicon.png">
+</head>
+<body class="examples" data-spy="scroll" data-target=".docbar">
+    <div class="navbar navbar-fixed-top appboxr-x-large">
+        <div class="navbar-blue-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </a><a class="brand" href="#">
+                    <img src="img/logo_small.png"></a>
+                <div class="appboxr pull-left" style="margin-top: 20px;">
+                    <h1>
+                        AppBoxr</h1>
+                    <div class="quote">
+                        "It hurts me to hurt you so bad"</div>
+                </div>
+                <div class="nav-collapse collapse pull-right">
+                    <ul class="nav">
+                        <li><a href="index.html">Docs</a></li>
+                        <li class="active"><a href="#installing">Examples</a></li>
+                        <li><a href="https://github.com/TimHeckel/AppBoxr">Github</a></li>
+                        <li><a href="https://nuget.org/packages/AppBoxr/0.0.9-beta">NuGet</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <div class="docbar">
+                    <div class="navbar-brown-inner appboxr-x-large affix-top" data-spy="affix" data-offset-top="120">
+                        <ul class="nav nav-tabs nav-stacked">
+                            <li><a href="#proxy">AppBoxr Proxy</a></li>
+                            <li><a href="#kittens">Kittens</a></li>
+                            <li><a href="#parties">Parties</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="span9 segments">
+                <div id="proxy" class="well segment">
+                    <h5>
+                        How do these Examples even work? AppBoxr as a proxy!</h5>
+                    <p>
+                        Because I'm hosting these pages on Github, they're all vanilla HTML pages. BUT,
+                        I pushed an new <code>Install-Package AppBoxr -Pre</code> solution up to <a href="http://appharbor.com">
+                            AppHarbor</a> and have changed my AppBoxr objects to use https://appboxr.appharbor.com.
+                    </p>
+                    <p>
+                        Now, I have a pure javascript / html / css examples doing all the AppBoxr goodness,
+                        yet using a remote server. This cross-domain kungfu is all due ot the awesome sauce
+                        that is <a href="http://signalr.net">SignalR</a>
+                    </p>
+                </div>
+                <div id="kittens" class="well segment">
+                    <div class="row">
+                        <div class="pull-left">
+                            <h5>
+                                &nbsp;&nbsp;Ah, Kittens. We love you.</h5>
+                            <p>
+                            </p>
+                            <form class="form-horizontal" id="KittenContainer" data-model="Kittens">
+                            <div class="control-group">
+                                <label class="control-label" for="inputEmail">
+                                    Name</label>
+                                <div class="controls">
+                                    <input type="text" id="inputEmail" placeholder="Kitten Name" data-property="Name">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputToy">
+                                    Favorite Toy</label>
+                                <div class="controls">
+                                    <input type="text" id="inputToy" placeholder="Favorite Toy" data-property="FavoriteToy">
+                                </div>
+                            </div>
+                            <div class="offset1" data-model="Enemies">
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">
+                                        Enemies</label>
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            <input type="checkbox" data-property="DogHater">
+                                            Dogs
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" data-property="HamsterHater">
+                                            Hamsters
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" data-property="SelfHatred">
+                                            Self (self-hatred issues)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <button class="btn btnDel btn-danger" data-del="Kittens">
+                                        Delete</button>
+                                    <button class="btn btnSave btn-primary" data-save="Kittens">
+                                        Save</button>
+                                </div>
+                                <div class="alert alert-info pull-left">
+                                    Bring this page up in multiple browsers<br /> to see real-time model syncing.
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="pull-right" style="width: 200px; max-height: 400px; overflow: auto;">
+                            <h5>
+                                All Kittens</h5>
+                            Click to edit
+                            <div data-model-template="Kittens" data-model-orderby="Name" data-model-orderby-direction="asc">
+                                <div data-model-target="KittenContainer" class="appboxr-load">
+                                    <h4>
+                                        {{Name}} &middot; {{FavoriteToy}}</h4>
+                                    <div>
+                                        Hates Dogs? {{Enemies.DogHater}}<br />
+                                        Hates Hamsters? {{Enemies.HamsterHater}}<br />
+                                        Hates Self? {{Enemies.SelfHatred}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="parties" class="well segment">
+                    <h5>Parties Example</h5>
+                    <div class="alert alert-info">
+                        Coming Soon
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--load dependencies first-->
+    <script src="https://appboxr.apphb.com/Scripts/underscore.js"></script>
+    <script src="https://appboxr.apphb.com/Scripts/jquery.signalR-1.0.0-rc1.js"></script>
+    <script src="https://appboxr.apphb.com/Scripts/jquery.signalRamp.js"></script>
+    <script src="https://appboxr.apphb.com/Scripts/jquery.domModelr.js"></script>
+    <script src="https://appboxr.apphb.com/Scripts/handlebars.js"></script>
+    <!--load appboxr last-->
+    <script src="https://appboxr.apphb.com/Scripts/jquery.appBoxr.js"></script>
+    <script>
+        $(document).ready(function () {
+            var app = new AppBoxr({
+                url: "https://appboxr.apphb.com" //CHANGE this to match your local environment
+                , syncUI: false //no need to sync UI events
+            });
+
+            $(".btnSave").click(function (e) {
+                app.call("save", { models: [$(this).data("save")] });
+                e.preventDefault();
+            });
+
+            $(".btnDel").click(function (e) {
+                app.call("del", { model: $(this).data("del") });
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('a[href^="#"]').click(function () {
+                var target = $(this.hash);
+                if (target.length == 0) target = $('a[name="' + this.hash.substr(1) + '"]');
+                if (target.length == 0) target = $('html');
+                $('html, body').animate({ scrollTop: target.offset().top }, 500);
+                return false;
+            });
+        });
+
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-35769235-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>
