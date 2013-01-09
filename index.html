@@ -40,9 +40,6 @@
                 <div style="padding-left: 10px;">
                     <h1 class="appboxr">
                         AppBoxr</h1>
-                    <h4>
-                        a .NET micro framework of<br />
-                        bruising simplicity</h4>
                 </div>
             </div>
             <div class="span8">
@@ -157,7 +154,6 @@
                             <li><a href="#quickstart">Quick Start</a></li>
                             <li><a href="#restful">RESTful API</a></li>
                             <li><a href="#help">Help</a></li>
-
                             <li><a href="#htmlstructure">HTML Structure</a></li>
                             <li><a href="#jsapi">Javascript Api</a></li>
                         </ul>
@@ -170,17 +166,9 @@
                         <div class="span5">
                             <h5>
                                 What is AppBoxr?</h5>
-                            <p>
-                                AppBoxr is a .NET micro-framework that does three things: (1) provides a simple
-                                way to synchronize your data collections in real-time to all connected clients;
-                                (2) exposes a RESTful api to add/update/delete any of your DOM-defined collections;
-                                and (3) handles updating, deleting, and adding of new collections all through simple
-                                javascript calls.
-                            </p>
-                            <p>
-                                AppBoxr makes the coding simple: all you need to worry about is making a snappy
-                                UI sprinked with data-* attributes that describe your model. Once that's set, fire
-                                up the AppBoxr javascript object and let AppBoxr do the rest.
+                            <p class="lead">
+                                AppBoxr is a .NET micro framework that makes writing apps bruisingly simple. No
+                                ORM. No API.
                             </p>
                         </div>
                         <div class="span3">
@@ -189,6 +177,22 @@
                             <script type='text/javascript'>
                                 (function (w, d, u, c) { var s, d; var l = false; if (!(j = w.Slatebox) || c(s, l)) { var sc = d.createElement('script'); sc.type = 'text/javascript'; sc.src = u; sc.onload = sc.onreadystatechange = function () { if (!l && (!(dx = this.readyState) || dx == 'loaded' || dx == 'complete')) { c((s = window.Slatebox), l = true); } }; d.documentElement.childNodes[0].appendChild(sc); } })(window, document, 'http://slatebox.com/public/javascript/runtime/sb-0.5.0.embed.min.js', function (s$, isloaded) { window.onload = function (e) { var sb = new Slatebox(); sb.embed({ container: s$.el('slate_941c9aba3f2d'), slateid: '941c9aba3f2d', size: 300, apikey: '176fde9e8c' }); }; });
                             </script>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span8">
+                            <p>
+                                AppBoxr does three things: (1) provides a simple way to <b>synchronize in real-time</b>
+                                your data collections across all connected clients; (2) exposes a <b>RESTful api</b>
+                                to add/update/delete any of your DOM-defined collections; and (3) uses <b>pure javascript</b>
+                                to handle CRUD operations of your server-side database (currently Mongo is the only
+                                supported backend).
+                            </p>
+                            <p>
+                                All you need to worry about is making a snappy UI sprinked with data-* attributes
+                                that describe your model. Once that's set, fire up the AppBoxr javascript object
+                                and you're immediately syncing and saving.
+                            </p>
                         </div>
                     </div>
                     <div class="row">
@@ -395,24 +399,28 @@
                         to all connected clients.
                     </div>
                 </div>
-                 <div id="help" class="well segment">
+                <div id="help" class="well segment">
                     <h5>
                         Need some help?</h5>
-
-                        <p><a href="http://stackoverflow.com">Stackoverflow</a> is a great place to ask for help.</p>
-                        <p>You can also shoot me <a href="mailto:tim@slatebox.com">an email</a> and I'll do my best to respond.</p>
+                    <p>
+                        <a href="http://stackoverflow.com">Stackoverflow</a> is a great place to ask for
+                        help.</p>
+                    <p>
+                        You can also shoot me <a href="mailto:tim@slatebox.com">an email</a> and I'll do
+                        my best to respond.</p>
                 </div>
-
                 <div id="htmlstructure" class="well segment">
-                    <h5>HTML Structure</h5>
-                    <p>Coming soon</p>
+                    <h5>
+                        HTML Structure</h5>
+                    <p>
+                        Coming soon</p>
                 </div>
-
-                 <div id="jsapi" class="well segment" style="height:600px;">
-                    <h5>Javascript API</h5>
-                    <p>Coming soon</p>
+                <div id="jsapi" class="well segment" style="height: 600px;">
+                    <h5>
+                        Javascript API</h5>
+                    <p>
+                        Coming soon</p>
                 </div>
-
             </div>
         </div>
     </div>
@@ -444,6 +452,6 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
-</script>
+    </script>
 </body>
 </html>
