@@ -4,9 +4,6 @@ body
     font-size: 13pt;
     background-color: #58A6C8;
 }
-.examples {
-    padding-top: 130px; 
-}
 .appboxr
 {
     font-family: 'Maiden Orange';
@@ -264,3 +261,5 @@ a
     border: 1px solid #257192;
     border-radius: 7px;
 }
+
+.docbar { min-width:200px; }

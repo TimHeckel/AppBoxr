@@ -8,10 +8,6 @@
     <meta name="author" content="">
     <!-- Le styles -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/site.css">
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,900|Maiden+Orange' rel='stylesheet'
-        type='text/css'>
     <style>
         .affix
         {
@@ -20,7 +16,16 @@
             left: auto;
             width: auto;
         }
+        body {
+            padding-top: 130px; 
+        }
     </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/site.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-responsive.min.css">
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900|Maiden+Orange' rel='stylesheet'
+        type='text/css'>
+    
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,7 +37,8 @@
     <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="img/ico/favicon.png">
 </head>
-<body class="examples" data-spy="scroll" data-target=".docbar">
+
+<body data-spy="scroll" data-target=".docbar">
     <div class="navbar navbar-fixed-top appboxr-x-large">
         <div class="navbar-blue-inner">
             <div class="container">
@@ -43,8 +49,6 @@
                 <div class="appboxr pull-left" style="margin-top: 20px;">
                     <h1>
                         AppBoxr</h1>
-                    <div class="quote">
-                        "It hurts me to hurt you so bad"</div>
                 </div>
                 <div class="nav-collapse collapse pull-right">
                     <ul class="nav">
@@ -61,7 +65,7 @@
         <div class="row">
             <div class="span3">
                 <div class="docbar">
-                    <div class="navbar-brown-inner appboxr-x-large affix-top" data-spy="affix" data-offset-top="120">
+                    <div class="navbar-brown-inner appboxr-x-large">
                         <ul class="nav nav-tabs nav-stacked">
                             <li><a href="#proxy">AppBoxr Proxy</a></li>
                             <li><a href="#kittens">Kittens</a></li>
@@ -203,6 +207,13 @@
                 $('html, body').animate({ scrollTop: target.offset().top }, 500);
                 return false;
             });
+
+            $(".docbar").affix({
+                offset: {
+                    top: 1 //function () { return $(window).width() <= 980 ? 290 : 210 }
+                    , bottom: 270
+                }
+            })
         });
 
     </script>
